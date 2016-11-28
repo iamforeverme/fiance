@@ -70,6 +70,7 @@ class Account(models.Model):
 	amount = models.FloatField(default=0.0)
 	owner = models.CharField(max_length=200)
 	record_date = models.DateTimeField(default=timezone.now)
+	is_availible = models.BooleanField(default=True)
 
 	def __str__(self):
 		"""

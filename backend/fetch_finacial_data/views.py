@@ -19,11 +19,13 @@ class ExchangeRateList(generics.ListCreateAPIView):
 class AccountList(generics.ListCreateAPIView):
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
+    def get_queryset(self):
+	    return super(AccountList, self).get_queryset().filter(is_availible=True)
 
 class BankList(generics.ListCreateAPIView):
     queryset = Bank.objects.all()
     serializer_class = BankSerializer
-    
+
 class AssetList(generics.ListCreateAPIView):
     queryset = Asset.objects.all()
     serializer_class = AssetSerializer
