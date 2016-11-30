@@ -28,4 +28,4 @@ class AssetSerializer(serializers.ModelSerializer):
 class AccountSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Account
-		fields = ('id','currency_type','bank','asset','amount','owner','record_date')
+		fields = ('id','currency_type','bank','asset','amount','owner','record_date','interest_rate','mature_date')

@@ -3,10 +3,12 @@ A script to run periodical to fetch exchange rate and put them in the database
 """
 import requests
 import json
+import os
 from time import sleep
 # 
 # export DJANGO_SETTINGS_MODULE=backend.settings
 # 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
 EXCHANGE_RATE_URL = r"http://free.currencyconverterapi.com/api/v3/convert?"
 TIME_INTERVAL = 60*10
 import django

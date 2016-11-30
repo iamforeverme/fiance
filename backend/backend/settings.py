@@ -25,7 +25,8 @@ SECRET_KEY = 'j%%7)p$&q*i_qjy_*=s&*7)lio%xepr*s5tqe54+e_eg%=euf2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.31.153',
+                 '127.0.0.1']
 
 
 # Application definition
@@ -101,6 +102,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -120,3 +127,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EXCHANGE_RATE_URL = r"http://free.currencyconverterapi.com/api/v3/convert?"

@@ -70,13 +70,18 @@ class Account(models.Model):
 	amount = models.FloatField(default=0.0)
 	owner = models.CharField(max_length=200)
 	record_date = models.DateTimeField(default=timezone.now)
+	interest_rate = models.FloatField(default=0.003)
+	mature_date = models.DateTimeField(null=True , blank=True)
 	is_availible = models.BooleanField(default=True)
 
 	def __str__(self):
 		"""
 		    show obj in the admin
 		"""
-		return self.owner
+		return "{owner} has {amount} {currency_type} in {bank} @{record_date}".\
+				format(owner=self.owner, amount = str(self.amount), asset = self.asset.asset_name, \
+					bank = self.bank.bank_name, record_date = self.record_date.strftime("%Y-%m-%d %H:%M:%S"),\
+					currency_type = self.currency_type.currency_type)
 	
 
 
